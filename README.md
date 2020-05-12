@@ -38,6 +38,12 @@ Use the parameter `debug` for debug mode example:
 
 To use `.\plugin-builder.bat` for windows.
 
+Set commit as qualifier (just for linux) `commit` parameter:
+
+```bash
+./plugin-builder commit
+```
+
 ## How it works
 
 ### Update the `pom.xml` file
