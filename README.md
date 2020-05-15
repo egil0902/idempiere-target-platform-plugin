@@ -44,6 +44,12 @@ Set commit as qualifier (just for linux) `commit` parameter:
 ./plugin-builder commit
 ```
 
+Set build number as qualifier (just for linux, usually on jenkins) `build` parameter:
+
+```bash
+./plugin-builder build
+```
+
 ## How it works
 
 ### Update the `pom.xml` file

@@ -18,6 +18,13 @@ do
       OPTIONS="$OPTIONS -DforceContextQualifier=$GIT_COMMIT"
       shift
   fi
+
+  if [ "$arg" = "build" ]; then
+      echo "Using build number qualifier"
+      [ -z "$BUILD_NUMBER" ] && echo "Set BUILD_NUMBER variable first" && exit 1
+      OPTIONS="$OPTIONS -DforceContextQualifier=$BUILD_NUMBER"
+      shift
+  fi
 done
 
 javac TargetPlatformPomGenerator.java
