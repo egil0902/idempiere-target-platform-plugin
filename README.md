@@ -2,7 +2,6 @@
 
 A target platform is necessary to build a iDempiere plugin. This is a smart target platform. Current iDempiere Version `8.1`.
 
-
 ## Prerequisites
 
 - Java 11, commands `java` and `javac`.
