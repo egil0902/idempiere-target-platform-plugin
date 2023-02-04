@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><?pde version="3.8"?>
-<target name="idempiere-9.0.0" sequenceNumber="91">
+<target name="idempiere-10.0.0" sequenceNumber="91">
     <locations>
         <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
             <unit id="org.adempiere.base.feature.feature.group"/>
@@ -25,6 +25,16 @@
             <version>4.8.138</version>
             <type>jar</type>
 	     </location>
+	<location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="true" type="InstallableUnit">
+	     <unit id="jakarta.xml.ws-api" version="2.3.3.v202109010034"/>
+	     <unit id="org.atmosphere.runtime" version="2.7.2.v202109010034"/>
+	     <unit id="com.google.guava" version="30.1.1.jre_v202109010034"/>
+	     <unit id="com.google.http-client.google-http-client" version="1.39.2.sp_1_v202109010034"/>
+	     <unit id="com.sun.xml.fastinfoset.FastInfoset" version="1.2.18.v202109010034"/>
+	     <unit id="org.apache.felix.webconsole" version="4.6.4.v202109010034"/>
+	     <unit id="org.apache.poi.ooxml-schemas" version="4.1.2.v202109010034"/>
+	     <repository id="repackaged" location="https://idempiere.github.io/binary.file/p2.repackaged/9.0.0"/>
+	 </location>
     </locations>
     <targetJRE path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 </target>
