@@ -6,6 +6,6 @@
     <version>${revision}</version>
     <packaging>pom</packaging>
     <modules>
-        <module>com.ingeint.template.p2.targetplatform</module>
+        <module>com.ingeint.template.p2.targetplatform</module>${TPdependencies}
     </modules>
 </project>
