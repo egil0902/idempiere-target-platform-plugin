@@ -57,4 +57,7 @@ This script will generate automatically the files to compile any plugin:
 - `com.ingeint.template.p2.targetplatform/com.ingeint.template.p2.targetplatform.target`
 - `com.ingeint.template.p2.targetplatform/pom.xml`
 
-For more information about the plugin structure go [here](https://github.com/globalqss/globalqss-idempiere-lco).
+For more information about the plugin structure go to:
+
+- <https://wiki.idempiere.org/en/Category:Plug-In_Development>.
+- <https://wiki.idempiere.org/en/Building_iDempiere_Plugins_with_Maven>.
