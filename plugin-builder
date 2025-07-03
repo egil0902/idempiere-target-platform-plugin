@@ -1,6 +1,47 @@
 #!/usr/bin/env sh
 
 set -e
+filename=".env"
+
+
+if [ ! -f "$filename" ]; then
+    echo "Error: El archivo .env no se encontró en la ruta actual."
+    exit 1
+fi
+
+while IFS= read -r line; do
+   
+    if echo "$line" | grep -q '^[[:space:]]*$'; then
+        continue
+    fi
+
+
+    case "$line" in
+        \#*)
+            continue
+            ;;
+    esac
+
+
+    var_name=$(echo "$line" | cut -d '=' -f 1)
+
+    var_value=$(echo "$line" | cut -d '=' -f 2-)
+
+
+    if echo "$line" | grep -q '=' && [ -n "$var_name" ] && [ -n "$(echo "$var_value" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')" ]; then
+        export "$line"
+  
+        echo "Exportada: $var_name=$(eval echo \$$var_name)"
+    else
+        echo "Ignorada (formato incorrecto o valor vacío): $line"
+    fi
+done < "$filename"
+
+echo ""
+echo "Variables de entorno cargadas desde .env:"
+echo $IDEMPIERE_REPOSITORY
+java -version
+mvn -v
 
 OPTIONS=
 
