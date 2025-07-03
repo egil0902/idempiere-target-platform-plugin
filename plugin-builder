@@ -1,6 +1,35 @@
 #!/usr/bin/env sh
 
 set -e
+filename=".env"
+if [ ! -f "$filename" ]; then
+    echo "Error: File .env not found."
+    exit 1
+fi
+while IFS= read -r line; do   
+    if echo "$line" | grep -q '^[[:space:]]*$'; then
+        continue
+    fi
+    case "$line" in
+        \#*)
+            continue
+            ;;
+    esac
+    var_name=$(echo "$line" | cut -d '=' -f 1)
+
+    var_value=$(echo "$line" | cut -d '=' -f 2-)
+    if echo "$line" | grep -q '=' && [ -n "$var_name" ] && [ -n "$(echo "$var_value" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')" ]; then
+        export "$line"
+  
+        echo "Exported: $var_name=$(eval echo \$$var_name)"
+    else
+        echo "Ignored (wrong format or empty value): $line"
+    fi
+done < "$filename"
+
+echo $IDEMPIERE_REPOSITORY
+java -version
+mvn -v
 
 OPTIONS=
 
