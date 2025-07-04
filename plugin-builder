@@ -20,15 +20,15 @@ while IFS= read -r line; do
     var_value=$(echo "$line" | cut -d '=' -f 2-)
     if echo "$line" | grep -q '=' && [ -n "$var_name" ] && [ -n "$(echo "$var_value" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')" ]; then
         export "$line"
-  
         echo "Exported: $var_name=$(eval echo \$$var_name)"
     else
         echo "Ignored (wrong format or empty value): $line"
     fi
 done < "$filename"
-
-echo $IDEMPIERE_REPOSITORY
-java -version
+export PATH=${M2_HOME}"/bin":${IDEMPIERE_REPOSITORY}:${PATH}
+echo ${PATH}
+#echo $IDEMPIERE_REPOSITORY
+#java -version
 mvn -v
 
 OPTIONS=
