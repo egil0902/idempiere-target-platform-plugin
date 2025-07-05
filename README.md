@@ -1,20 +1,24 @@
 # iDempiere Plugin Template - Target Platform
 
+
 A target platform is necessary to build a iDempiere plugin. This is a smart target platform. Current iDempiere Version `12`.
 
 ## Prerequisites
 
 - Java 17, commands `java` and `javac`.
-- Maven 3.9.10
-- Set `IDEMPIERE_REPOSITORY` env variable.
+- Maven 3.9.9
+
 
 ## Getting started
-
+- Configure .env file with your enviroment configuration PATHS
+  
+  IDEMPIERE_REPOSITORY=
+  JAVA_HOME=
+  M2_HOME=
+  
 - Compile target platform:
 
-```bash
-./plugin-builder
-```
+sh ./plugin-builder
 
 You could create a file `plugins.txt` with all plugin's paths on newlines, example:
 
@@ -25,13 +29,13 @@ You could create a file `plugins.txt` with all plugin's paths on newlines, examp
 
 - Compiling target platform and plugins:
 
-```bash
+```sh
 ./plugin-builder /plugin-path-1 /plugin-path-2
 ```
 
 - Using parameter `debug` for debug mode example:
 
-```bash
+```sh
 ./plugin-builder debug /plugin-path-1 /plugin-path-2
 ```
 
@@ -39,13 +43,13 @@ You could create a file `plugins.txt` with all plugin's paths on newlines, examp
 
 - Set the current hash commit as qualifier (*just for linux*) `commit` parameter (it'll need a $GIT_COMMIT env variable):
 
-```bash
+```sh
 ./plugin-builder commit
 ```
 
 - Set build number as qualifier (*just for linux, usually on jenkins*) `build` parameter (it'll need a $BUILD_NUMBER env variable):
 
-```bash
+```sh
 ./plugin-builder build
 ```
 
@@ -57,7 +61,3 @@ This script will generate automatically the files to compile any plugin:
 - `com.ingeint.template.p2.targetplatform/com.ingeint.template.p2.targetplatform.target`
 - `com.ingeint.template.p2.targetplatform/pom.xml`
 
-For more information about the plugin structure go to:
-
-- <https://wiki.idempiere.org/en/Category:Plug-In_Development>.
-- <https://wiki.idempiere.org/en/Building_iDempiere_Plugins_with_Maven>.
