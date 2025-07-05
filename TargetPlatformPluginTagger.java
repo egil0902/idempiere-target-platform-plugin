@@ -29,20 +29,21 @@ public class TargetPlatformPluginTagger {
             File targetFolder = targetPath.toFile();
             for (File file : targetFolder.listFiles()) {
                 if (file.isFile() && file.getName().endsWith("SNAPSHOT.jar")) {
-                    JarInputStream jarStream = new JarInputStream(new FileInputStream(file));
-                    Manifest manifest = jarStream.getManifest();
+                    try (JarInputStream jarStream = new JarInputStream(new FileInputStream(file))) {
+                        Manifest manifest = jarStream.getManifest();
 
-                    String symbolicName = manifest.getMainAttributes().getValue("Bundle-SymbolicName");
-                    String version = manifest.getMainAttributes().getValue("Bundle-Version");
-                    String jarName = String.format("%s-%s.jar", symbolicName, version);
+                        String symbolicName = manifest.getMainAttributes().getValue("Bundle-SymbolicName");
+                        String version = manifest.getMainAttributes().getValue("Bundle-Version");
+                        String jarName = String.format("%s-%s.jar", symbolicName, version);
 
-                    Path newJar = file.toPath().getParent().resolve(jarName).toAbsolutePath();
-                    Path newJarInTarget = PLUGINS_TARGET_PATH.resolve(jarName).toAbsolutePath();
+                        Path newJar = file.toPath().getParent().resolve(jarName).toAbsolutePath();
+                        Path newJarInTarget = PLUGINS_TARGET_PATH.resolve(jarName).toAbsolutePath();
 
-                    Files.copy(file.toPath(), newJar, StandardCopyOption.REPLACE_EXISTING);
-                    Files.copy(file.toPath(), newJarInTarget, StandardCopyOption.REPLACE_EXISTING);
+                        Files.copy(file.toPath(), newJar, StandardCopyOption.REPLACE_EXISTING);
+                        Files.copy(file.toPath(), newJarInTarget, StandardCopyOption.REPLACE_EXISTING);
 
-                    System.out.printf("Output plugin: %s\n", newJarInTarget);
+                        System.out.printf("Output plugin: %s\n", newJarInTarget);
+                    }
                 }
             }
         }
