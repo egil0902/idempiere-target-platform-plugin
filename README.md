@@ -1,12 +1,14 @@
 # iDempiere Plugin Template - Target Platform
 
 
-A target platform is necessary to build a iDempiere plugin. This is a smart target platform. Current iDempiere Version `12`.
+A target platform is necessary to build a iDempiere plugin. This is a smart target platform. Current iDempiere Version `10`.
 
 ## Prerequisites
 
-- Java 17, commands `java` and `javac`.
-- Maven 3.9.9
+- Java 11, commands `java` and `javac`.
+- Maven 3.6.3
+
+
 
 
 ## Getting started
