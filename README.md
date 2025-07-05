@@ -4,8 +4,8 @@ A target platform is necessary to build a iDempiere plugin. This is a smart targ
 
 ## Prerequisites
 
-- Java 11, commands `java` and `javac`.
-- Maven 3.6.0
+- Java 17, commands `java` and `javac`.
+- Maven 3.9.9
 - Set `IDEMPIERE_REPOSITORY` env variable.
 
 ## Getting started
